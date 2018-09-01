@@ -46,7 +46,7 @@ INSTALL
 ---------------------------------------
 
 ```
-$ npm install --save-dev babel-plugin-espower
+$ npm install --save-dev @gerhobbelt/babel-plugin-espower
 ```
 
 
@@ -72,7 +72,7 @@ HOW TO USE
 ---------------------------------------
 
 
-### via [.babelrc](https://babeljs.io/docs/usage/babelrc/)
+### via [.babelrc](https://babeljs.io/docs/usage/babelrc/) (Recommended)
 
 ```javascript
 {
@@ -439,7 +439,7 @@ Licensed under the [MIT](https://github.com/GerHobbelt/babel-plugin-espower/blob
 
 
 [npm-url]: https://npmjs.org/package/@gerhobbelt/babel-plugin-espower
-[npm-image]: https://badge.fury.io/js/@gerhobbelt/babel-plugin-espower.svg
+[npm-image]: https://badge.fury.io/js/%40gerhobbelt%2Fbabel-plugin-espower.svg
 
 [travis-url]: https://travis-ci.org/GerHobbelt/babel-plugin-espower
 [travis-image]: https://secure.travis-ci.org/GerHobbelt/babel-plugin-espower.svg?branch=master
