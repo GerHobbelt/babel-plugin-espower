@@ -13,8 +13,8 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual' + suffix + '.js');
         var result = babel.transformFileSync(fixtureFilepath, assign({
             presets: [
-                '@gerhobbelt/babel-env',
-                '@gerhobbelt/babel-react'
+                '@gerhobbelt/babel-preset-env',
+                '@gerhobbelt/babel-preset-react'
             ],
             plugins: [
                 createEspowerPlugin(babel, {
@@ -23,11 +23,24 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
             ]
         }, extraOptions));
         var actual = result.code + '\n';
-        var expected = fs.readFileSync(expectedFilepath, 'utf8');
-        if (actual != expected) {
-            fs.writeFileSync(actualFilepath, actual);
+
+        // dirty hack to tweak the sources to ensure all platforms (Windows vs. UNIX) produce the same output:
+        // tweak the forward-slash to backslash for all `filepath` entries in there:
+        actual = actual.replace(/filepath:.*$/gm, function (line) {
+            return line.replace(/[\\][\\]/g, '/');
+        });
+
+        if (fs.existsSync(expectedFilepath)) {
+            var expected = fs.readFileSync(expectedFilepath, 'utf8');
+            if (actual !== expected) {
+                fs.writeFileSync(actualFilepath, actual, 'utf8');
+            }
+            assert.equal(actual, expected);
+        } else {
+            console.warn("          Regenerating test SOLLWERT for " + fixtureName + " ...");
+            assert(true); // shut up test rig: one (fake) test done at least!
+            fs.writeFileSync(expectedFilepath, actual, 'utf8');
         }
-        assert.equal(actual, expected);
     });
 }
 
