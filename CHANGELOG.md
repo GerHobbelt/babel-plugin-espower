@@ -1,4 +1,4 @@
-## [3.0.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v3.0.0) (2018-08-30)
+## [3.0.0](https://github.com/GerHobbelt/babel-plugin-espower/releases/tag/v3.0.0) (2018-08-30)
 
 
 #### Features

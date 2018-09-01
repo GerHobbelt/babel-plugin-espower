@@ -89,17 +89,17 @@ HOW TO USE
 $ babel /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
-For example, with `@babel/register` module and `.babelrc` above, you can run mocha without code generation steps.
+For example, with `@gerhobbelt/babel-register` module and `.babelrc` above, you can run mocha without code generation steps.
 
 ```
-$ $(npm bin)/mocha --require @babel/register test/some_test.js
+$ $(npm bin)/mocha --require @gerhobbelt/babel-register test/some_test.js
 ```
 
 
 ### via [Babel API](https://babeljs.io/docs/usage/api/)
 
 ```javascript
-var babel = require('@babel/core');
+var babel = require('@gerhobbelt/babel-core');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
     presets: [...],
@@ -112,7 +112,7 @@ console.log(transformed.code);
 ### via [Babel Require Hook](https://babeljs.io/docs/usage/require/)
 
 ```javascript
-require('@babel/register')({
+require('@gerhobbelt/babel-register')({
     presets: [...],
     plugins: ['babel-plugin-espower']
 });
@@ -239,10 +239,10 @@ prepare `babel_hook.js` to transform tests.
 }
 ```
 
-Run `mocha` with `--require @babel/register` option. You will see the power-assert output appears.
+Run `mocha` with `--require @gerhobbelt/babel-register` option. You will see the power-assert output appears.
 
 ```
-$ $(npm bin)/mocha --require @babel/register test/demo_test.js
+$ $(npm bin)/mocha --require @gerhobbelt/babel-register test/demo_test.js
 
   ES6 demo
     1) Destructuring and TemplateLiteral
@@ -332,7 +332,7 @@ You can customize configs such as assertion patterns via [.babelrc](https://babe
 or via [Require Hook](https://babeljs.io/docs/usage/require/).
 
 ```javascript
-require('@babel/register')({
+require('@gerhobbelt/babel-register')({
     presets: [...],
     plugins: [
         ['babel-plugin-espower', {
@@ -350,7 +350,7 @@ require('@babel/register')({
 or via [Babel API](https://babeljs.io/docs/usage/api/),
 
 ```javascript
-var babel = require('@babel/core');
+var babel = require('@gerhobbelt/babel-core');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
     presets: [...],
@@ -435,17 +435,17 @@ NOTE: If babel-plugin-espower works in any of the unsupported environments, it i
 
 LICENSE
 ---------------------------------------
-Licensed under the [MIT](https://github.com/power-assert-js/babel-plugin-espower/blob/master/LICENSE) license.
+Licensed under the [MIT](https://github.com/GerHobbelt/babel-plugin-espower/blob/master/LICENSE) license.
 
 
-[npm-url]: https://npmjs.org/package/babel-plugin-espower
-[npm-image]: https://badge.fury.io/js/babel-plugin-espower.svg
+[npm-url]: https://npmjs.org/package/@gerhobbelt/babel-plugin-espower
+[npm-image]: https://badge.fury.io/js/@gerhobbelt/babel-plugin-espower.svg
 
-[travis-url]: https://travis-ci.org/power-assert-js/babel-plugin-espower
-[travis-image]: https://secure.travis-ci.org/power-assert-js/babel-plugin-espower.svg?branch=master
+[travis-url]: https://travis-ci.org/GerHobbelt/babel-plugin-espower
+[travis-image]: https://secure.travis-ci.org/GerHobbelt/babel-plugin-espower.svg?branch=master
 
-[depstat-url]: https://gemnasium.com/power-assert-js/babel-plugin-espower
-[depstat-image]: https://gemnasium.com/power-assert-js/babel-plugin-espower.svg
+[depstat-url]: https://gemnasium.com/GerHobbelt/babel-plugin-espower
+[depstat-image]: https://gemnasium.com/GerHobbelt/babel-plugin-espower.svg
 
-[license-url]: https://github.com/power-assert-js/babel-plugin-espower/blob/master/LICENSE
+[license-url]: https://github.com/GerHobbelt/babel-plugin-espower/blob/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT-brightgreen.svg
